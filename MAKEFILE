@@ -1,0 +1,66 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    MAKEFILE                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jbauch <jbauch@student.42wolsfburg.de>     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/05/23 11:16:12 by jbauch            #+#    #+#              #
+#    Updated: 2026/05/23 11:16:12 by jbauch           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = push_swap
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+RM = rm -rf
+AR = ar rcs
+
+SRC_DIR = src
+OBJ_DIR = obj
+LIBFT_DIR = libft
+LIBFT = $(LIBFT_DIR)/libft.a
+INCLUDE = -I.
+
+SRC = \
+	$(SRC_DIR)/errors.c \
+	$(SRC_DIR)/indexing.c \
+	$(SRC_DIR)/main.c \
+	$(SRC_DIR)/parse.c \
+	$(SRC_DIR)/push.c \
+	$(SRC_DIR)/radix.c \
+	$(SRC_DIR)/reverse.c \
+	$(SRC_DIR)/rotate.c \
+	$(SRC_DIR)/small_sorting.c \
+	$(SRC_DIR)/swap.c \
+	$(SRC_DIR)/utils.c
+
+OBJ = $(addprefix $(OBJ_DIR)/,$(notdir $(SRC:.c=.o)))
+
+all: $(NAME)
+
+$(NAME): $(LIBFT) $(OBJ)
+	@printf "Building $(NAME)...\n"
+	@$(CC) $(CFLAGS) $(INCLUDE) -o $@ $(OBJ) $(LIBFT)
+	@printf "$(NAME) is ready.\n"
+
+$(LIBFT):
+	@$(MAKE) -C $(LIBFT_DIR)
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
+	@printf "Compiling $<\n"
+	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+
+clean:
+	@$(MAKE) -C $(LIBFT_DIR) clean
+	@$(RM) $(OBJ_DIR)
+
+fclean: clean
+	@$(MAKE) -C $(LIBFT_DIR) fclean
+	@$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
+
