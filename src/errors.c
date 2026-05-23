@@ -6,13 +6,13 @@
 /*   By: jbauch <jbauch@student.42wolsfburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 10:30:16 by jbauch            #+#    #+#             */
-/*   Updated: 2026/05/23 10:30:16 by jbauch           ###   ########.fr       */
+/*   Updated: 2026/05/23 13:42:34 by jbauch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    print_error(void)
+void	print_error(void)
 {
-    write(2, "Task failed\n", 6);
+	write(2, "Error\n", 6);
 }
