@@ -6,11 +6,11 @@
 /*   By: jbauch <jbauch@student.42wolsfburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 12:12:00 by jbauch            #+#    #+#             */
-/*   Updated: 2026/05/23 13:26:44 by jbauch           ###   ########.fr       */
+/*   Updated: 2026/05/26 14:03:29 by jbauch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static void	sort_two(t_stack **a)
 {

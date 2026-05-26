@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbauch <jbauch@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: jbauch <jbauch@student.42wolsfburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 11:40:00 by jbauch            #+#    #+#             */
-/*   Updated: 2026/05/23 11:40:00 by jbauch           ###   ########.fr       */
+/*   Updated: 2026/05/26 14:03:26 by jbauch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	pa(t_stack **a, t_stack **b)
 {

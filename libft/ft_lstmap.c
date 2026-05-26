@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                       :+:      :+:    :+:    */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbauch <jbauch@student.42wolfsburg.de>      +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 02:29:00 by jbauch             #+#    #+#            */
-/*   Updated: 2025/12/15 02:29:00 by jbauch            ###   ########.fr      */
+/*   Created: 2025/12/15 02:26:00 by jbauch             #+#    #+#            */
+/*   Updated: 2025/12/15 02:26:00 by jbauch            ###   ########.fr      */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strrchr(const char *src, int c)
+t_list	*ft_lstmap(t_list *list, void *(*f)(void *), void (*del)(void *))
 {
-	const char		*out;
-	unsigned char	ch;
+	t_list	*new_list;
+	t_list	*new_object;
+	void	*func;
 
-	ch = (unsigned char)c;
-	out = NULL;
-	while (*src)
+	if (!list || !f || !del)
+		return (NULL);
+	new_list = NULL;
+	while (list)
 	{
-		if ((unsigned char)*src == ch)
-			out = src;
-		src++;
+		func = f(list->content);
+		new_object = ft_lstnew(func);
+		if (!new_object)
+		{
+			ft_lstclear(&new_list, del);
+			free(func);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_list, new_object);
+		list = list->next;
 	}
-	if (ch == '\0')
-		return ((char *)src);
-	return ((char *)out);
+	return (new_list);
 }

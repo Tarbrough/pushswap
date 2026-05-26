@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_strlen(const char *c)
+size_t	ft_strlen(const char *c)
 {
-	int	count;
+	size_t	count;
 
 	count = 0;
 	while (c[count] != '\0')

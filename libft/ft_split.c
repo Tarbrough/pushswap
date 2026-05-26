@@ -12,7 +12,7 @@
 #include "libft.h"
 
 int				word_count(char const *str, char delimiter);
-static void		*ft_free(char **str, int c);
+static void		ft_free(char **str);
 char			*append_word(char const*str, int start, int end);
 static void		variable_set(int *i, int *start, int *j);
 
@@ -27,15 +27,15 @@ char	**ft_split(char const *s, char c)
 	word = ft_calloc(word_count(s, c) + 1, sizeof(char *));
 	if (!word)
 		return (NULL);
-	while (i <= ft_strlen(s))
+	while (i <= (int)ft_strlen(s))
 	{
 		if (s[i] != c && start < 0)
 			start = i;
-		else if ((s[i] == c || i == ft_strlen(s)) && start >= 0)
+		else if ((s[i] == c || i == (int)ft_strlen(s)) && start >= 0)
 		{
 			word[j] = append_word(s, start, i);
 			if (!(word[j]))
-				return (ft_free(word, j));
+				return (ft_free(word), NULL);
 			start = -1;
 			j++;
 		}
@@ -67,18 +67,17 @@ int	word_count(char const *str, char delimiter)
 	return (count);
 }
 
-static void	*ft_free(char **str, int c)
+static void	ft_free(char **str)
 {
 	int	i;
 
 	i = 0;
-	while (i < c)
+	while (str[i])
 	{
 		free(str[i]);
 		i++;
 	}
 	free(str);
-	return (NULL);
 }
 
 char	*append_word(char const*str, int start, int end)

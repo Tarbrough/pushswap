@@ -6,7 +6,7 @@
 /*   By: jbauch <jbauch@student.42wolsfburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 12:41:20 by jbauch            #+#    #+#             */
-/*   Updated: 2026/05/23 13:28:27 by jbauch           ###   ########.fr       */
+/*   Updated: 2026/05/26 14:03:31 by jbauch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	stack_push_top(t_stack **stack, t_stack *new)
 {
@@ -43,6 +43,8 @@ void	stack_push_bottom(t_stack **stack, t_stack *new)
 		return ;
 	if (!*stack)
 	{
+		new->next = NULL;
+		new->prev = NULL;
 		*stack = new;
 		return ;
 	}
@@ -67,30 +69,19 @@ t_stack	*stack_pop_top(t_stack **stack)
 	return (top);
 }
 
-int	is_sorted(t_stack *a)
+int	position_of_index(t_stack *a, int index)
 {
-	while (a && a->next)
+	int	pos;
+
+	pos = 0;
+	while (a)
 	{
-		if (a->value > a->next->value)
-			return (0);
+		if (a->index == index)
+			return (pos);
 		a = a->next;
+		pos++;
 	}
-	return (1);
-}
-
-int position_of_index(t_stack *a, int index)
-{
-    int pos;
-
-    pos = 0;
-    while (a)
-    {
-        if (a->index == index)
-            return (pos);
-        a = a->next;
-        pos++;
-    }
-    return (-1);
+	return (-1);
 }
 
 void	bring_to_top(t_stack **a, int index)

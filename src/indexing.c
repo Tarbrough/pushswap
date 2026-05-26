@@ -6,11 +6,11 @@
 /*   By: jbauch <jbauch@student.42wolsfburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 10:53:57 by jbauch            #+#    #+#             */
-/*   Updated: 2026/05/23 13:09:31 by jbauch           ###   ########.fr       */
+/*   Updated: 2026/05/26 14:03:24 by jbauch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static t_stack	*find_min_unindexed(t_stack *a)
 {

@@ -6,11 +6,11 @@
 /*   By: jbauch <jbauch@student.42wolsfburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 10:30:16 by jbauch            #+#    #+#             */
-/*   Updated: 2026/05/23 13:42:34 by jbauch           ###   ########.fr       */
+/*   Updated: 2026/05/26 14:03:23 by jbauch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	print_error(void)
 {

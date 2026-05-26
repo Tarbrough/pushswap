@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbauch <jbauch@student.42wolfsburg.de>      +#+  +:+       +#+       */
+/*   By: jbauch <jbauch@student.42wolsfburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 02:29:00 by jbauch             #+#    #+#            */
-/*   Updated: 2025/12/15 02:29:00 by jbauch            ###   ########.fr      */
+/*   Created: 2025/12/15 02:29:00 by jbauch            #+#    #+#             */
+/*   Updated: 2026/05/26 14:05:17 by jbauch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+
+#include <stddef.h>
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {

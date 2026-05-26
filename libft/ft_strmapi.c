@@ -20,7 +20,7 @@ char	*ft_strmapi(const char *string, char (*function)(unsigned int, char))
 	result = malloc((ft_strlen(string) + 1) * sizeof(char));
 	if (!result)
 		return (NULL);
-	while (i < ft_strlen(string))
+	while (i < (int)ft_strlen(string))
 	{
 		result[i] = (*function)(i, string[i]);
 		i++;

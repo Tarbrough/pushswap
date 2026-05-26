@@ -6,11 +6,11 @@
 /*   By: jbauch <jbauch@student.42wolsfburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 10:31:52 by jbauch            #+#    #+#             */
-/*   Updated: 2026/05/23 13:28:44 by jbauch           ###   ########.fr       */
+/*   Updated: 2026/05/26 14:03:33 by jbauch           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 t_stack	*stack_new(int value)
 {
@@ -63,3 +63,15 @@ t_stack	*stack_bottom(t_stack *stack)
 	return (stack);
 }
 
+void	free_split(char **s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		free(s[i]);
+		i++;
+	}
+	free(s);
+}
